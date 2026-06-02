@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\Witeem.McpServer.EntityFrameworkCore\Witeem.McpServer.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\Witeem.McpServer.McpServer\Witeem.McpServer.McpServer.csproj" />
+    <PackageReference Include="Volo.Abp.EntityFrameworkCore.SqlServer" Version="$(AbpFrameworkVersion)" />
+  </ItemGroup>
+</Project>

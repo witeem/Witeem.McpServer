@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Witeem.McpServer</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Witeem.McpServer.McpServer\Witeem.McpServer.McpServer.csproj" />
+    <ProjectReference Include="..\Witeem.McpServer.McpServer.Application\Witeem.McpServer.McpServer.Application.csproj" />
+    <PackageReference Include="Volo.Abp.Autofac" Version="$(AbpFrameworkVersion)" />
+    <PackageReference Include="Volo.Abp.AspNetCore" Version="$(AbpFrameworkVersion)" />
+    <PackageReference Include="ModelContextProtocol" Version="0.*" />
+  </ItemGroup>
+</Project>

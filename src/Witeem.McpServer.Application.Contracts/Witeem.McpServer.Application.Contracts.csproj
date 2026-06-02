@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\Witeem.McpServer.Domain.Shared\Witeem.McpServer.Domain.Shared.csproj" />
+    <PackageReference Include="Volo.Abp.Ddd.Application.Contracts" Version="$(AbpFrameworkVersion)" />
+  </ItemGroup>
+</Project>

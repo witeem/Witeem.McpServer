@@ -1,0 +1,6 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\Witeem.McpServer.Application.Contracts\Witeem.McpServer.Application.Contracts.csproj" />
+    <PackageReference Include="Volo.Abp.Http.Client" Version="$(AbpFrameworkVersion)" />
+  </ItemGroup>
+</Project>

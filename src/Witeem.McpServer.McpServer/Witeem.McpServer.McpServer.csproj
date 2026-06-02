@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\Witeem.McpServer.Domain\Witeem.McpServer.Domain.csproj" />
+    <ProjectReference Include="..\Witeem.McpServer.EntityFrameworkCore\Witeem.McpServer.EntityFrameworkCore.csproj" />
+    <PackageReference Include="Volo.Abp.Ddd.Domain" Version="$(AbpFrameworkVersion)" />
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+</Project>

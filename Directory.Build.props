@@ -1,0 +1,12 @@
+<Project>
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <LangVersion>13.0</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>Witeem.McpServer</RootNamespace>
+    <AbpFrameworkVersion>9.3.6</AbpFrameworkVersion>
+    <SemanticKernelVersion>1.61.0</SemanticKernelVersion>
+    <OpenTelemetryVersion>1.11.2</OpenTelemetryVersion>
+  </PropertyGroup>
+</Project>

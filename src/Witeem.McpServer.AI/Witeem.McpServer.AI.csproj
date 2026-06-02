@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="..\Witeem.McpServer.Domain\Witeem.McpServer.Domain.csproj" />
+    <ProjectReference Include="..\Witeem.McpServer.McpServer\Witeem.McpServer.McpServer.csproj" />
+    <ProjectReference Include="..\Witeem.McpServer.Application.Contracts\Witeem.McpServer.Application.Contracts.csproj" />
+    <PackageReference Include="Volo.Abp.Ddd.Application" Version="$(AbpFrameworkVersion)" />
+    <PackageReference Include="Microsoft.SemanticKernel.Core" Version="$(SemanticKernelVersion)" />
+  </ItemGroup>
+</Project>
