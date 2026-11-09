@@ -20,7 +20,7 @@ jobs:
         run: dotnet publish -c Release -o ./publish
 
       - name: Stop IIS Site and App Pool
-        shell: powershell
+        shell: powershell -ExecutionPolicy Bypass -Command "{0}"
         run: |
           Import-Module WebAdministration
           Stop-WebSite -Name "MCP" -ErrorAction SilentlyContinue
@@ -28,12 +28,12 @@ jobs:
           Start-Sleep -Seconds 3
 
       - name: Deploy files to IIS
-        shell: powershell
+        shell: powershell -ExecutionPolicy Bypass -Command "{0}"
         run: |
           Copy-Item -Path ".\publish\*" -Destination "E:\GitHub\Witeem.McpServer" -Recurse -Force -Exclude "appsettings*.json"
 
       - name: Start IIS App Pool and Site
-        shell: powershell
+        shell: powershell -ExecutionPolicy Bypass -Command "{0}"
         run: |
           Import-Module WebAdministration
           Start-WebAppPool -Name "MCP"
