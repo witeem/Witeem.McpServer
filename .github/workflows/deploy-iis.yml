@@ -1,0 +1,39 @@
+name: Deploy to IIS
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Publish
+        run: dotnet publish -c Release -o ./publish
+
+      - name: Stop IIS Site and App Pool
+        shell: powershell
+        run: |
+          Import-Module WebAdministration
+          Stop-WebSite -Name "MCP" -ErrorAction SilentlyContinue
+          Stop-WebAppPool -Name "MCP" -ErrorAction SilentlyContinue
+          Start-Sleep -Seconds 3
+
+      - name: Deploy files to IIS
+        shell: powershell
+        run: |
+          Copy-Item -Path ".\publish\*" -Destination "E:\GitHub\Witeem.McpServer" -Recurse -Force -Exclude "appsettings*.json"
+
+      - name: Start IIS App Pool and Site
+        shell: powershell
+        run: |
+          Import-Module WebAdministration
+          Start-WebAppPool -Name "MCP"
+          Start-WebSite -Name "MCP"
