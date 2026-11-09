@@ -16,6 +16,7 @@ jobs:
           dotnet-version: '9.0.x'
 
       - name: Publish
+        shell: powershell -ExecutionPolicy Bypass -Command "{0}"
         run: dotnet publish -c Release -o ./publish
 
       - name: Stop IIS Site and App Pool
