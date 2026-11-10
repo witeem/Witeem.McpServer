@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '9.0.x'
+
+      - name: Restore
+        shell: powershell -ExecutionPolicy Bypass -Command "{0}"
+        run: dotnet restore
+
+      - name: Build
+        shell: powershell -ExecutionPolicy Bypass -Command "{0}"
+        run: dotnet build -c Release --no-restore
+
+      # 如果没有测试项目，可删除这一步
+      - name: Test
+        shell: powershell -ExecutionPolicy Bypass -Command "{0}"
+        run: dotnet test -c Release --no-build --no-restore
