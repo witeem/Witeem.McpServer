@@ -1,8 +1,7 @@
 name: Deploy to IIS
+
 on:
   push:
-    branches:
-      - main
     tags:
       - 'v*'
 
@@ -12,6 +11,21 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          # 必须完整历史，否则 merge-base 无法判断 tag 是否在 main 上
+          fetch-depth: 0
+
+      # ===== AND 校验：只有 tag 落在 main 历史中才继续 =====
+      - name: Verify tag is on main branch
+        shell: powershell -ExecutionPolicy Bypass -Command "{0}"
+        run: |
+          git fetch origin main
+          git merge-base --is-ancestor ${{ github.sha }} origin/main
+          if ($LASTEXITCODE -ne 0) {
+            Write-Error "Tag ${{ github.ref_name }} is NOT on main branch. Aborting deployment."
+            exit 1
+          }
+          Write-Host "Tag ${{ github.ref_name }} is on main branch. Proceeding..."
 
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
