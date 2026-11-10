@@ -7,7 +7,7 @@ public class McpToolCallDto : EntityDto<Guid>
 {
     public Guid? TenantId { get; set; }
     public Guid ToolId { get; set; }
-    public string ToolName { get; set; }
+    public string ToolName { get; set; } = default!;
     public string? CallerInfo { get; set; }
     public Guid? UserId { get; set; }
     public string? UserName { get; set; }

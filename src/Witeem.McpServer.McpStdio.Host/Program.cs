@@ -2,25 +2,27 @@ using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Volo.Abp;
-using Volo.Abp.AspNetCore;
+using Volo.Abp.Autofac;
 using Volo.Abp.Modularity;
-using Witeem.McpServer.McpServer.Application;
+using Witeem.McpServer.Domain;
+using Witeem.McpServer.EntityFrameworkCore;
 
 namespace Witeem.McpServer;
 
+/// <summary>
+/// Stdio host module. Depends on the domain engine (tool registry + invocation
+/// pipeline) and the consolidated EF Core module (repositories/audit), without
+/// pulling in the full HTTP application layer.
+/// </summary>
 [DependsOn(
-    typeof(WiteemMcpServerMcpServerApplicationModule)
+    typeof(WiteemMcpServerDomainModule),
+    typeof(WiteemMcpServerEntityFrameworkCoreModule),
+    typeof(AbpAutofacModule)
 )]
 public class McpStdioHostModule : AbpModule
 {
-    public override void ConfigureServices(ServiceConfigurationContext context)
-    {
-    }
-
-    public override void OnApplicationInitialization(ApplicationInitializationContext context)
-    {
-    }
 }
 
 public class McpStdioProgram
@@ -28,6 +30,7 @@ public class McpStdioProgram
     public static async Task Main(string[] args)
     {
         var builder = WebApplication.CreateBuilder(args);
+        builder.Host.UseAutofac();
         builder.Services.AddApplication<McpStdioHostModule>();
         var app = builder.Build();
         await app.InitializeApplicationAsync();

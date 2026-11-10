@@ -1,4 +1,5 @@
 using Volo.Abp.AutoMapper;
+using Volo.Abp.Authorization;
 using Volo.Abp.Modularity;
 using Witeem.McpServer.Application.Contracts;
 using Witeem.McpServer.Domain;
@@ -8,6 +9,7 @@ namespace Witeem.McpServer.Application;
 [DependsOn(
     typeof(WiteemMcpServerDomainModule),
     typeof(WiteemMcpServerApplicationContractsModule),
+    typeof(AbpAuthorizationModule),
     typeof(AbpAutoMapperModule)
 )]
 public class WiteemMcpServerApplicationModule : AbpModule

@@ -6,12 +6,12 @@ namespace Witeem.McpServer.Application.Contracts.Dtos;
 public class McpToolDto : EntityDto<Guid>
 {
     public Guid? TenantId { get; set; }
-    public string ToolName { get; set; }
-    public string DisplayName { get; set; }
-    public string Description { get; set; }
-    public string AssemblyFullName { get; set; }
-    public string ClassName { get; set; }
-    public string MethodName { get; set; }
+    public string ToolName { get; set; } = default!;
+    public string DisplayName { get; set; } = default!;
+    public string Description { get; set; } = default!;
+    public string AssemblyFullName { get; set; } = default!;
+    public string ClassName { get; set; } = default!;
+    public string MethodName { get; set; } = default!;
     public string? ParametersSchema { get; set; }
     public string? ReturnSchema { get; set; }
     public bool Enabled { get; set; }
@@ -23,12 +23,12 @@ public class McpToolDto : EntityDto<Guid>
 
 public class McpToolCreateUpdateDto
 {
-    public string ToolName { get; set; }
-    public string DisplayName { get; set; }
-    public string Description { get; set; }
-    public string AssemblyFullName { get; set; }
-    public string ClassName { get; set; }
-    public string MethodName { get; set; }
+    public string ToolName { get; set; } = default!;
+    public string DisplayName { get; set; } = default!;
+    public string Description { get; set; } = default!;
+    public string AssemblyFullName { get; set; } = default!;
+    public string ClassName { get; set; } = default!;
+    public string MethodName { get; set; } = default!;
     public string? ParametersSchema { get; set; }
     public string? ReturnSchema { get; set; }
     public bool Enabled { get; set; } = true;

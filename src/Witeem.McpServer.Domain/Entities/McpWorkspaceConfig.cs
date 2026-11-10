@@ -11,26 +11,26 @@ public class McpWorkspaceConfig : FullAuditedAggregateRoot<Guid>, IMultiTenant
 
     [Required]
     [StringLength(100)]
-    public virtual string WorkspaceName { get; set; }
+    public virtual string WorkspaceName { get; set; } = default!;
 
     [Required]
     [StringLength(200)]
-    public virtual string WorkspaceType { get; set; }
+    public virtual string WorkspaceType { get; set; } = default!;
 
     [Required]
     [StringLength(50)]
-    public virtual string Provider { get; set; }
+    public virtual string Provider { get; set; } = default!;
 
     [Required]
     [StringLength(100)]
-    public virtual string ModelName { get; set; }
+    public virtual string ModelName { get; set; } = default!;
 
     [StringLength(500)]
     public virtual string? Endpoint { get; set; }
 
     [Required]
     [StringLength(500)]
-    public virtual string ApiKeyEncrypted { get; set; }
+    public virtual string ApiKeyEncrypted { get; set; } = default!;
 
     [StringLength(100)]
     public virtual string? DeploymentName { get; set; }

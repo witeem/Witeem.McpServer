@@ -9,28 +9,25 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
 using Serilog;
 using Volo.Abp;
-using Volo.Abp.AspNetCore;
 using Volo.Abp.AspNetCore.Mvc;
 using Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic;
 using Volo.Abp.AspNetCore.Serilog;
 using Volo.Abp.Autofac;
 using Volo.Abp.Modularity;
 using Volo.Abp.Swashbuckle;
+using Witeem.McpServer.AI.Application;
 using Witeem.McpServer.Application;
+using Witeem.McpServer.Domain.Mcp.ToolRegistration;
 using Witeem.McpServer.EntityFrameworkCore;
 using Witeem.McpServer.HttpApi;
-using Witeem.McpServer.McpServer.EntityFrameworkCore;
-using Witeem.McpServer.McpServer.Application;
-using Witeem.McpServer.AI.Application;
 
 namespace Witeem.McpServer;
 
 [DependsOn(
     typeof(WiteemMcpServerApplicationModule),
     typeof(WiteemMcpServerHttpApiModule),
-    typeof(WiteemMcpServerMcpServerApplicationModule),
     typeof(WiteemMcpServerAIApplicationModule),
-    typeof(WiteemMcpServerMcpServerEntityFrameworkCoreModule),
+    typeof(WiteemMcpServerEntityFrameworkCoreModule),
     typeof(AbpAutofacModule),
     typeof(AbpAspNetCoreMvcUiBasicThemeModule),
     typeof(AbpSwashbuckleModule),
@@ -42,15 +39,17 @@ public class WiteemMcpServerHttpApiHostModule : AbpModule
     {
         var configuration = context.Services.GetConfiguration();
 
+        Configure<McpToolOptions>(options =>
+        {
+            options.ToolAssemblies.Add(typeof(WiteemMcpServerApplicationModule).Assembly);
+            options.ToolAssemblies.Add(typeof(WiteemMcpServerAIApplicationModule).Assembly);
+        });
+
         Configure<AbpAspNetCoreMvcOptions>(options =>
         {
             options.ConventionalControllers.Create(typeof(WiteemMcpServerApplicationModule).Assembly, opts =>
             {
                 opts.RootPath = "api/app";
-            });
-            options.ConventionalControllers.Create(typeof(WiteemMcpServerMcpServerApplicationModule).Assembly, opts =>
-            {
-                opts.RootPath = "api/mcp";
             });
             options.ConventionalControllers.Create(typeof(WiteemMcpServerAIApplicationModule).Assembly, opts =>
             {

@@ -1,0 +1,63 @@
+<Project>
+  <PropertyGroup>
+    <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
+    <CentralPackageTransitivePinningEnabled>false</CentralPackageTransitivePinningEnabled>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <AbpFrameworkVersion>9.3.6</AbpFrameworkVersion>
+    <!-- 1.71.0 fixes GHSA-2ww3-72rp-wpp4 / CVE-2026-25592. -->
+    <SemanticKernelVersion>1.71.0</SemanticKernelVersion>
+    <OpenTelemetryVersion>1.11.2</OpenTelemetryVersion>
+    <EfCoreVersion>9.0.5</EfCoreVersion>
+    <XUnitVersion>2.9.3</XUnitVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- ABP Framework -->
+    <PackageVersion Include="Volo.Abp.Core" Version="$(AbpFrameworkVersion)" />
+    <PackageVersion Include="Volo.Abp.Ddd.Domain" Version="$(AbpFrameworkVersion)" />
+    <PackageVersion Include="Volo.Abp.Ddd.Application" Version="$(AbpFrameworkVersion)" />
+    <PackageVersion Include="Volo.Abp.Ddd.Application.Contracts" Version="$(AbpFrameworkVersion)" />
+    <PackageVersion Include="Volo.Abp.AutoMapper" Version="$(AbpFrameworkVersion)" />
+    <PackageVersion Include="Volo.Abp.Authorization" Version="$(AbpFrameworkVersion)" />
+    <PackageVersion Include="Volo.Abp.MultiTenancy" Version="$(AbpFrameworkVersion)" />
+    <PackageVersion Include="Volo.Abp.Security" Version="$(AbpFrameworkVersion)" />
+    <PackageVersion Include="Volo.Abp.EntityFrameworkCore" Version="$(AbpFrameworkVersion)" />
+    <PackageVersion Include="Volo.Abp.EntityFrameworkCore.SqlServer" Version="$(AbpFrameworkVersion)" />
+    <PackageVersion Include="Volo.Abp.EntityFrameworkCore.Sqlite" Version="$(AbpFrameworkVersion)" />
+    <PackageVersion Include="Volo.Abp.AspNetCore" Version="$(AbpFrameworkVersion)" />
+    <PackageVersion Include="Volo.Abp.AspNetCore.Mvc" Version="$(AbpFrameworkVersion)" />
+    <PackageVersion Include="Volo.Abp.AspNetCore.Mvc.UI.Theme.Basic" Version="$(AbpFrameworkVersion)" />
+    <PackageVersion Include="Volo.Abp.AspNetCore.Serilog" Version="$(AbpFrameworkVersion)" />
+    <PackageVersion Include="Volo.Abp.Autofac" Version="$(AbpFrameworkVersion)" />
+    <PackageVersion Include="Volo.Abp.Swashbuckle" Version="$(AbpFrameworkVersion)" />
+    <PackageVersion Include="Volo.Abp.TestBase" Version="$(AbpFrameworkVersion)" />
+
+    <!-- ASP.NET Core primitives (lightweight, no full framework reference) -->
+    <PackageVersion Include="Microsoft.AspNetCore.Authorization" Version="$(EfCoreVersion)" />
+
+    <!-- Entity Framework Core -->
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="$(EfCoreVersion)" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Sqlite" Version="$(EfCoreVersion)" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="$(EfCoreVersion)" />
+
+    <!-- AI Orchestration -->
+    <PackageVersion Include="Microsoft.SemanticKernel.Core" Version="$(SemanticKernelVersion)" />
+    <PackageVersion Include="ModelContextProtocol" Version="1.0.0" />
+
+    <!-- Observability -->
+    <PackageVersion Include="OpenTelemetry.Exporter.Console" Version="$(OpenTelemetryVersion)" />
+    <PackageVersion Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" Version="1.15.3" />
+    <PackageVersion Include="OpenTelemetry.Extensions.Hosting" Version="$(OpenTelemetryVersion)" />
+    <PackageVersion Include="Serilog.AspNetCore" Version="8.0.3" />
+    <PackageVersion Include="Serilog.Sinks.File" Version="6.0.0" />
+
+    <!-- Testing -->
+    <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
+    <PackageVersion Include="xunit" Version="$(XUnitVersion)" />
+    <PackageVersion Include="xunit.runner.visualstudio" Version="2.8.2" />
+    <PackageVersion Include="NSubstitute" Version="5.3.0" />
+    <PackageVersion Include="Shouldly" Version="4.2.1" />
+  </ItemGroup>
+</Project>

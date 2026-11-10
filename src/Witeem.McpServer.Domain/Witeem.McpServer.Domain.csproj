@@ -1,6 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
     <ProjectReference Include="..\Witeem.McpServer.Domain.Shared\Witeem.McpServer.Domain.Shared.csproj" />
-    <PackageReference Include="Volo.Abp.Ddd.Domain" Version="$(AbpFrameworkVersion)" />
+    <PackageReference Include="Volo.Abp.Ddd.Domain" />
+    <PackageReference Include="Volo.Abp.MultiTenancy" />
+    <PackageReference Include="Volo.Abp.Security" />
+    <PackageReference Include="Microsoft.AspNetCore.Authorization" />
   </ItemGroup>
 </Project>

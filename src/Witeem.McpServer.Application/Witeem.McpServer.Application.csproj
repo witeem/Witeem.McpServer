@@ -2,7 +2,9 @@
   <ItemGroup>
     <ProjectReference Include="..\Witeem.McpServer.Application.Contracts\Witeem.McpServer.Application.Contracts.csproj" />
     <ProjectReference Include="..\Witeem.McpServer.Domain\Witeem.McpServer.Domain.csproj" />
-    <PackageReference Include="Volo.Abp.Ddd.Application" Version="$(AbpFrameworkVersion)" />
-    <PackageReference Include="Volo.Abp.AutoMapper" Version="$(AbpFrameworkVersion)" />
+    <PackageReference Include="Volo.Abp.Ddd.Application" />
+    <PackageReference Include="Volo.Abp.AutoMapper" />
+    <PackageReference Include="Volo.Abp.Authorization" />
+    <PackageReference Include="Volo.Abp.Security" />
   </ItemGroup>
 </Project>

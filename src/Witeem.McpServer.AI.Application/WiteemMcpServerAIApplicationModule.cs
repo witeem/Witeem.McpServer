@@ -1,15 +1,13 @@
 using Volo.Abp.AutoMapper;
 using Volo.Abp.Modularity;
-using Witeem.McpServer.AI;
+using Witeem.McpServer.Application;
 using Witeem.McpServer.Application.Contracts;
-using Witeem.McpServer.McpServer.Application;
 
 namespace Witeem.McpServer.AI.Application;
 
 [DependsOn(
-    typeof(WiteemMcpServerAIModule),
+    typeof(WiteemMcpServerApplicationModule),
     typeof(WiteemMcpServerApplicationContractsModule),
-    typeof(WiteemMcpServerMcpServerApplicationModule),
     typeof(AbpAutoMapperModule)
 )]
 public class WiteemMcpServerAIApplicationModule : AbpModule

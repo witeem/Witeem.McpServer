@@ -4,10 +4,10 @@
     <RootNamespace>Witeem.McpServer</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Witeem.McpServer.McpServer\Witeem.McpServer.McpServer.csproj" />
-    <ProjectReference Include="..\Witeem.McpServer.McpServer.Application\Witeem.McpServer.McpServer.Application.csproj" />
-    <PackageReference Include="Volo.Abp.Autofac" Version="$(AbpFrameworkVersion)" />
-    <PackageReference Include="Volo.Abp.AspNetCore" Version="$(AbpFrameworkVersion)" />
-    <PackageReference Include="ModelContextProtocol" Version="0.*" />
+    <ProjectReference Include="..\Witeem.McpServer.Domain\Witeem.McpServer.Domain.csproj" />
+    <ProjectReference Include="..\Witeem.McpServer.EntityFrameworkCore\Witeem.McpServer.EntityFrameworkCore.csproj" />
+    <PackageReference Include="Volo.Abp.Autofac" />
+    <PackageReference Include="Volo.Abp.AspNetCore" />
+    <PackageReference Include="ModelContextProtocol" />
   </ItemGroup>
 </Project>

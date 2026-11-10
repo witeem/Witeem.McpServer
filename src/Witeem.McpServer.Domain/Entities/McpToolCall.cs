@@ -12,7 +12,7 @@ public class McpToolCall : Entity<Guid>, IMultiTenant
     public virtual Guid ToolId { get; set; }
 
     [StringLength(100)]
-    public virtual string ToolName { get; set; }
+    public virtual string ToolName { get; set; } = default!;
 
     [StringLength(500)]
     public virtual string? CallerInfo { get; set; }

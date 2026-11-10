@@ -11,22 +11,22 @@ public class McpServerEntity : FullAuditedAggregateRoot<Guid>, IMultiTenant
 
     [Required]
     [StringLength(100)]
-    public virtual string ServerName { get; set; }
+    public virtual string ServerName { get; set; } = default!;
 
     [Required]
     [StringLength(200)]
-    public virtual string DisplayName { get; set; }
+    public virtual string DisplayName { get; set; } = default!;
 
     [StringLength(500)]
     public virtual string? Description { get; set; }
 
     [Required]
     [StringLength(500)]
-    public virtual string Endpoint { get; set; }
+    public virtual string Endpoint { get; set; } = default!;
 
     [Required]
     [StringLength(20)]
-    public virtual string TransportType { get; set; }
+    public virtual string TransportType { get; set; } = default!;
 
     [StringLength(50)]
     public virtual string AuthType { get; set; } = "None";

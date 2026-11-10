@@ -10,7 +10,7 @@ public class McpToolCallStat : Entity<Guid>, IMultiTenant
 
     public virtual Guid ToolId { get; set; }
 
-    public virtual string ToolName { get; set; }
+    public virtual string ToolName { get; set; } = default!;
 
     public virtual DateTime StatDate { get; set; }
 

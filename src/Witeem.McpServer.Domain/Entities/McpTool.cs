@@ -11,27 +11,27 @@ public class McpTool : FullAuditedAggregateRoot<Guid>, IMultiTenant
 
     [Required]
     [StringLength(100)]
-    public virtual string ToolName { get; set; }
+    public virtual string ToolName { get; set; } = default!;
 
     [Required]
     [StringLength(200)]
-    public virtual string DisplayName { get; set; }
+    public virtual string DisplayName { get; set; } = default!;
 
     [Required]
     [StringLength(500)]
-    public virtual string Description { get; set; }
+    public virtual string Description { get; set; } = default!;
 
     [Required]
     [StringLength(500)]
-    public virtual string AssemblyFullName { get; set; }
+    public virtual string AssemblyFullName { get; set; } = default!;
 
     [Required]
     [StringLength(500)]
-    public virtual string ClassName { get; set; }
+    public virtual string ClassName { get; set; } = default!;
 
     [Required]
     [StringLength(200)]
-    public virtual string MethodName { get; set; }
+    public virtual string MethodName { get; set; } = default!;
 
     [StringLength(500)]
     public virtual string? ParametersSchema { get; set; }

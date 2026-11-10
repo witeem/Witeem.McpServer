@@ -11,11 +11,11 @@ public class McpRateLimitPolicy : FullAuditedAggregateRoot<Guid>, IMultiTenant
 
     [Required]
     [StringLength(100)]
-    public virtual string PolicyName { get; set; }
+    public virtual string PolicyName { get; set; } = default!;
 
     [Required]
     [StringLength(20)]
-    public virtual string TargetType { get; set; }
+    public virtual string TargetType { get; set; } = default!;
 
     public virtual Guid? TargetId { get; set; }
 

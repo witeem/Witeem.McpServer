@@ -11,21 +11,21 @@ public class McpPromptTemplate : FullAuditedAggregateRoot<Guid>, IMultiTenant
 
     [Required]
     [StringLength(100)]
-    public virtual string TemplateName { get; set; }
+    public virtual string TemplateName { get; set; } = default!;
 
     [Required]
     [StringLength(200)]
-    public virtual string DisplayName { get; set; }
+    public virtual string DisplayName { get; set; } = default!;
 
     [StringLength(500)]
     public virtual string? Description { get; set; }
 
     [Required]
     [StringLength(20)]
-    public virtual string Version { get; set; }
+    public virtual string Version { get; set; } = default!;
 
     [Required]
-    public virtual string PromptText { get; set; }
+    public virtual string PromptText { get; set; } = default!;
 
     [StringLength(500)]
     public virtual string? VariablesSchema { get; set; }

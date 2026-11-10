@@ -1,5 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
-    <PackageReference Include="Volo.Abp.Core" Version="$(AbpFrameworkVersion)" />
+    <PackageReference Include="Volo.Abp.Core" />
   </ItemGroup>
 </Project>
